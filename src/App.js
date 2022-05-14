@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { Counter } from './context';
+import { useContext } from 'react';
 
 function App() {
+  const {count,setCount} = useContext(Counter)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter Application</h1>
+      <div className="counter_app">
+        <button onClick={()=>setCount(count+1)}>Increment</button>
+        <h4>{count}</h4>
+        <button onClick={()=>setCount(count-1)}>Decrement</button>
+      </div>
+      
     </div>
   );
 }
